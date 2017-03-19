@@ -215,5 +215,7 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+vendor
+
 node_modules/
 assets/vendor/
