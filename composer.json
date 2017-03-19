@@ -1,3 +1,7 @@
 {
-  "name": "captainbland/ultimate-member-ca-clp"
+  "name": "captainbland/ultimate-member",
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "v1.0.6"
+  }
 }
