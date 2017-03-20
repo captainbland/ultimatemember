@@ -61,7 +61,7 @@ Domain Path: /languages
 		    if(is_null($available) || $available == 0) {
 		      $ultimatemember->form->add_error('membership_number', "Your membership number appears to be invalid! Please double check. If you believe this to be a mistake please contact the it-coordinator at it-coordinator@ca-clp.org.uk");
 		    } else {
-					$update_statement = $wpdb->prepare("UPDATE available_membership_numbers SET available=TRUE WHERE membership_id=%s", $membership_no_hash);
+					$update_statement = $wpdb->prepare("UPDATE available_membership_numbers SET available=FALSE WHERE membership_id=%s", $membership_no_hash);
 					$wpdb->query($update_statement);
 				}
 		  }
