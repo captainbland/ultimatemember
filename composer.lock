@@ -4,40 +4,44 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e32660e5e4cf5b6c3aea3eabf7e21b58",
-    "content-hash": "363acb95e8062e8d1dcccd8e245fee05",
+    "hash": "ab9d6bab9ca409cf2e60643fcbbcab1b",
+    "content-hash": "83c3646615892cc0cafb20009a1d86b3",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.6",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "b3bd071ea114a57212c75aa6a2eef5cfe0cc798f"
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/b3bd071ea114a57212c75aa6a2eef5cfe0cc798f",
-                "reference": "b3bd071ea114a57212c75aa6a2eef5cfe0cc798f",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804",
                 "shasum": ""
             },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
             "replace": {
+                "roundcube/plugin-installer": "*",
                 "shama/baton": "*"
             },
             "require-dev": {
                 "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "4.1.*"
             },
-            "type": "composer-installer",
+            "type": "composer-plugin",
             "extra": {
-                "class": "Composer\\Installers\\Installer",
+                "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -48,37 +52,67 @@
                 {
                     "name": "Kyle Robinson Young",
                     "email": "kyle@dontkry.com",
-                    "homepage": "https://github.com/shama",
-                    "role": "Developer"
+                    "homepage": "https://github.com/shama"
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
-                "TYPO3 CMS",
-                "TYPO3 Flow",
-                "TYPO3 Neos",
+                "Craft",
+                "Dolibarr",
+                "Hurad",
+                "ImageCMS",
+                "MODX Evo",
+                "Mautic",
+                "OXID",
+                "Plentymarkets",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
                 "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
                 "cakephp",
+                "chef",
+                "cockpit",
                 "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
                 "drupal",
+                "elgg",
+                "expressionengine",
                 "fuelphp",
+                "grav",
                 "installer",
                 "joomla",
                 "kohana",
                 "laravel",
-                "li3",
                 "lithium",
+                "magento",
                 "mako",
+                "mediawiki",
                 "modulework",
+                "moodle",
                 "phpbb",
+                "piwik",
                 "ppi",
+                "puppet",
+                "reindex",
+                "roundcube",
+                "shopware",
                 "silverstripe",
                 "symfony",
+                "typo3",
                 "wordpress",
-                "zend"
+                "yawik",
+                "zend",
+                "zikula"
             ],
-            "time": "2013-08-20 04:37:09"
+            "time": "2016-08-13 20:53:52"
         }
     ],
     "packages-dev": [],
