@@ -1,5 +1,5 @@
 {
-  "name": "captainbland/ultimate-member",
+  "name": "jshulver/ultimate-member",
   "type": "wordpress-plugin",
   "require": {
     "composer/installers": "v1.0.6"
