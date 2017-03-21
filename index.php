@@ -34,11 +34,11 @@ Domain Path: /languages
 	function ultimatemember_activation_hook( $plugin ) {
 
 		if( $plugin == um_plugin && get_option('um_version') != ultimatemember_version ) {
-
+			global $wpdb
+			global $ultimatemember
 			update_option('um_version', ultimatemember_version );
 
 			exit( wp_redirect( admin_url('admin.php?page=ultimatemember-about')  ) );
-
 		}
 
 	}
@@ -60,7 +60,7 @@ Domain Path: /languages
 		    echo $available;
 		    if(is_null($available) || $available == 0) {
 		      $ultimatemember->form->add_error('membership_number', "Your membership number appears to be invalid! Please double check. If you believe this to be a mistake please contact the it-coordinator at it-coordinator@ca-clp.org.uk");
-		    } else {
+		    } else if($ultimatemember->form->count_errors()) {
 					$update_statement = $wpdb->prepare("UPDATE available_membership_numbers SET available=FALSE WHERE membership_id=%s", $membership_no_hash);
 					$wpdb->query($update_statement);
 				}
