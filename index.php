@@ -84,7 +84,7 @@ Domain Path: /languages
 				}
 
 				foreach($splitnums as $num) {
-					$hashed_num = base64_encode(sha256($num));
+					$hashed_num = base64_encode(hash("sha256", $num));
 					$insert_query = $wpdb->prepare('INSERT INTO available_membership_numbers (membership_id, available) VALUES(%s, TRUE)', $hashed_num);
 					$wpdb->query($insert_query);
 				}
