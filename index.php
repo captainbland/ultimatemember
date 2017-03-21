@@ -65,6 +65,34 @@ Domain Path: /languages
 		  }
 		}
 
+		add_action('um_submit_form_errors_hook_', 'um_custom_validate_membership_numbers', 999, 1);
+
+		function um_custom_validate_membership_numbers($args) {
+			global $ultimatemember;
+			global $wpdb;
+
+
+
+			if(isset($args['membership_numbers'])) {
+				$splitnums = $args['membership_numbers'].split("\n");
+				foreach($splitnums as $num) {
+					if(preg_match("/^[A-Z][0-9]+$/", $num) === 0) {
+						$ultimatemember->form->add_error('membership_numbers', "One or more values does not look like a membership number!");
+						return;
+					}
+				}
+
+				foreach($splitnums as $num) {
+					$insert_query = $wpdb->prepare('INSERT INTO available_membership_numbers (membership_id, available) VALUES(%s, TRUE)', $num);
+					$wpdb->query($insert_query);
+				}
+
+				exit(wp_redirect(get_page_by_path('membership_numbers_update_success')));
+			} else {
+				$ultimatemember->form->add_error('membership_numbers', "No numbers set");
+			}
+		}
+
 	/***
 	***	@Add any custom links to plugin page
 	***/
