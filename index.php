@@ -74,8 +74,9 @@ Domain Path: /languages
 
 
 			if(isset($args['membership_numbers'])) {
-				$splitnums = $args['membership_numbers'].split("\n");
+				$splitnums = explode("\n",$args['membership_numbers']);
 				foreach($splitnums as $num) {
+					$num = trim($num);
 					if(preg_match("/^[A-Z][0-9]+$/", $num) === 0) {
 						$ultimatemember->form->add_error('membership_numbers', "One or more values does not look like a membership number!");
 						return;
