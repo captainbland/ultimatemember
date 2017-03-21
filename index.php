@@ -88,7 +88,7 @@ Domain Path: /languages
 					$wpdb->query($insert_query);
 				}
 
-				exit(wp_redirect(get_page_by_title('Membership numbers update success')));
+				exit(wp_redirect(get_post_permalink(get_page_by_title('Membership numbers update success')->id)));
 			} else {
 				$ultimatemember->form->add_error('membership_numbers', "No numbers set");
 			}
