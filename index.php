@@ -84,11 +84,12 @@ Domain Path: /languages
 				}
 
 				foreach($splitnums as $num) {
-					$insert_query = $wpdb->prepare('INSERT INTO available_membership_numbers (membership_id, available) VALUES(%s, TRUE)', $num);
+					$hashed_num = base64_encode(sha256($num));
+					$insert_query = $wpdb->prepare('INSERT INTO available_membership_numbers (membership_id, available) VALUES(%s, TRUE)', $hashed_num);
 					$wpdb->query($insert_query);
 				}
 
-				exit(wp_redirect(get_post_permalink(get_page_by_title('Membership numbers update success')->id)));
+				exit(wp_redirect(get_home_url() . '/membership-numbers-update-success'));
 			} else {
 				$ultimatemember->form->add_error('membership_numbers', "No numbers set");
 			}
