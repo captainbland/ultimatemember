@@ -90,7 +90,7 @@ Domain Path: /languages
 				}
 
 				exit(wp_redirect(get_home_url() . '/membership-numbers-update-success'));
-			} else {
+			} else if(!isset($args['membership_number'])){
 				$ultimatemember->form->add_error('membership_numbers', "No numbers set");
 			}
 		}
